@@ -50,7 +50,7 @@ Theme Styles
 
 body {
   box-sizing: border-box;
-  color:#373737;
+  color:#113711;
   background: #002100;
   font-size: 16px;
   font-family: 'Palatino Linotype','Myriad Pro', Calibri, Helvetica, Arial, sans-serif;
@@ -61,8 +61,8 @@ body {
 h1, h2, h3, h4, h5, h6 {
   margin: 10px 0;
   font-weight: 700;
-  color:#222222;
-  font-family: 'Lucida Grande', 'Calibri', Helvetica, Arial, sans-serif;
+  color:#22BB22;
+  font-family: 'Bauhaus Md BT', 'Calibri', Helvetica, Arial, sans-serif;
   letter-spacing: -1px;
 }
 
