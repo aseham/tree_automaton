@@ -39,9 +39,9 @@
    Dalam artikel ini akan dibahas mengenai branching tree automata, karena tree walking automata lebih sulit untuk dianalisis, bahkan untuk pohon yang relatif sederhana.</p>
 
 <p>Branching tree automata dibagi menjadi 2 berdasarkan bagaimana cara pemrosesan sebuah finite tree automata (FTA), yaitu bottom-up dan top-down. Kedua cara pemrosesan ini berpengaruh terhadap kekuatan pemrosesan, yaitu pada FTA yang deterministik, DFTA top-down lebih lemah daripada DFTA bottom-up, karena proses top-down hanya dapat bergantung pada path.
-   Sebuah branching tree automata didefinisikan dengan tuple (<i>Q,F,Qf,Δ</i>).
-   Pada FTA bottom-up, <i>Q</i> melambangkan set dari huruf-huruf uner yang dinyatakan sebagai state, <i>F</i> melambangkan huruf berpredikat, <i>Qf</i> menyatakan set dari final state dimana <i>Qf</i> subset dari <i>Q</i>, dan <i>Δ</i> menyatakan berbagai aturan transisi state dalam bentuk <i>f(q1(x1),...,qn(xn)) → q(f(x1,...,xn))</i>.
-   Pada FTA top-down, sama dengan FTA bottom-up namun terdapat perbedaan pada <i>Qf</i> dan <i>Δ</i>. <i>Qf</i> dalam FTA top-down digantikan oleh <i>Qi</i>, yang menyatakan set dari initial state dimana <i>Qi</i> subset dari <i>Q</i>, dan <i>Δ</i> memiliki bentuk yang terbalik dengan FTA bottom-up, yaitu <i>q(f(x1,...,xn)) → f(q1(x1),...,qn(xn))</i>.</p>
+   Sebuah branching tree automata didefinisikan dengan tuple (<i>Q,F,Q<sub>f</sub>,Δ</i>).
+   Pada FTA bottom-up, <i>Q</i> melambangkan set dari huruf-huruf uner yang dinyatakan sebagai state, <i>F</i> melambangkan huruf berpredikat, <i>Q<sub>f</sub></i> menyatakan set dari final state dimana <i>Q<sub>f</sub></i> subset dari <i>Q</i>, dan <i>Δ</i> menyatakan berbagai aturan transisi state dalam bentuk <i>f(q<sub>1</sub>(x<sub>1</sub>),...,q<sub>n</sub>(x<sub>n</sub>)) → q(f(x<sub>1</sub>,...,x<sub>n</sub>))</i>.
+   Pada FTA top-down, sama dengan FTA bottom-up namun terdapat perbedaan pada <i>Qf</i> dan <i>Δ</i>. <i>Q<sub>f</sub></i> dalam FTA top-down digantikan oleh <i>Q<sub>i</sub></i>, yang menyatakan set dari initial state dimana <i>Q<sub>i</sub></i> subset dari <i>Q</i>, dan <i>Δ</i> memiliki bentuk yang terbalik dengan FTA bottom-up, yaitu <i>q(f(x<sub>1</sub>,...,x<sub>n</sub>)) → f(q<sub>1</sub>(x<sub>1</sub>),...,q<sub>n</sub>(x<sub>n</sub>))</i>.</p>
 
 <pre><code>
 0             -> N(0)
