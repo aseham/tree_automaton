@@ -34,14 +34,22 @@
 <a id="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages" aria-hidden="true"><span class="octicon octicon-link"></span></a>Apa itu tree automaton?</h3>
 
 <p>Tree automaton adalah sebuah state machine yang bekerja dengan struktur pohon. Tree automata dibagi menjadi 2 berdasarkan persepsinya, yaitu branching tree automata dan tree walking automata. 
-   Branching tree automata memproses bahasa pohon regular, yaitu sebuah bahasa regular yang mendeskripsikan sekumpulan term yang disusun menjadi sebuah pohon. Sedangkan pada tree walking automata pohon diproses secara sekuensial mulai dari node akar, cabang kiri pohon, kemudian cabang kanan pohon.
+   Branching tree automata memproses bahasa pohon regular, yaitu sebuah bahasa regular yang mendeskripsikan sekumpulan term yang disusun menjadi sebuah pohon.
+   Sedangkan pada tree walking automata pohon diproses secara sekuensial mulai dari node akar, cabang kiri pohon, kemudian cabang kanan pohon.
    Dalam artikel ini akan dibahas mengenai branching tree automata, karena tree walking automata lebih sulit untuk dianalisis, bahkan untuk pohon yang relatif sederhana.</p>
 
-<p>Branching tree automata dibagi menjadi 2 berdasarkan bagaimana cara pemrosesan sebuah finite tree automata (FTA), yaitu bottom-up dan top-down.</p>
+<p>Branching tree automata dibagi menjadi 2 berdasarkan bagaimana cara pemrosesan sebuah finite tree automata (FTA), yaitu bottom-up dan top-down. Kedua cara pemrosesan ini berpengaruh terhadap kekuatan pemrosesan, yaitu pada FTA yang deterministik, DFTA top-down lebih lemah daripada DFTA bottom-up, karena proses top-down hanya dapat bergantung pada path.
+   Sebuah branching tree automata didefinisikan dengan tuple (Q,F,Qf,Δ).
+   Pada FTA bottom-up, Q melambangkan set dari huruf-huruf uner yang dinyatakan sebagai state, F melambangkan huruf berpredikat, Qf menyatakan set dari final state dimana Qf adalah subset dari Q, dan Δ menyatakan berbagai aturan transisi state dalam bentuk f(q1(x1),...,qn(xn)) → q(f(x1,...,xn)).
+   Pada FTA top-down, sama dengan FTA bottom-up namun terdapat perbedaan pada Qf dan Δ. Qf dalam FTA top-down digantikan oleh Qi, yang menyatakan set dari initial state dimana Qi subset dari Q, dan Δ memiliki bentuk yang terbalik dengan FTA bottom-up, yaitu q(f(x1,...,xn)) → f(q1(x1),...,qn(xn)).</p>
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+<pre><code>
+0             -> N(0)
+1             -> N(1)
+A             -> C(A)
+B(N(x),C(y))  -> C(B(x,y)) 
 
-<pre><code>$ cd your_repo_root/repo_name
+$ cd your_repo_root/repo_name
 $ git fetch origin
 $ git checkout gh-pages
 </code></pre>
