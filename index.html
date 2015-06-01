@@ -39,9 +39,9 @@
    Dalam artikel ini akan dibahas mengenai branching tree automata, karena tree walking automata lebih sulit untuk dianalisis, bahkan untuk pohon yang relatif sederhana.</p>
 
 <p>Branching tree automata dibagi menjadi 2 berdasarkan bagaimana cara pemrosesan sebuah finite tree automata (FTA), yaitu bottom-up dan top-down. Kedua cara pemrosesan ini berpengaruh terhadap kekuatan pemrosesan, yaitu pada FTA yang deterministik, DFTA top-down lebih lemah daripada DFTA bottom-up, karena proses top-down hanya dapat bergantung pada path.
-   Sebuah branching tree automata didefinisikan dengan tuple (Q,F,Qf,Δ).
-   Pada FTA bottom-up, Q melambangkan set dari huruf-huruf uner yang dinyatakan sebagai state, F melambangkan huruf berpredikat, Qf menyatakan set dari final state dimana Qf adalah subset dari Q, dan Δ menyatakan berbagai aturan transisi state dalam bentuk f(q1(x1),...,qn(xn)) → q(f(x1,...,xn)).
-   Pada FTA top-down, sama dengan FTA bottom-up namun terdapat perbedaan pada Qf dan Δ. Qf dalam FTA top-down digantikan oleh Qi, yang menyatakan set dari initial state dimana Qi subset dari Q, dan Δ memiliki bentuk yang terbalik dengan FTA bottom-up, yaitu q(f(x1,...,xn)) → f(q1(x1),...,qn(xn)).</p>
+   Sebuah branching tree automata didefinisikan dengan tuple (<i>Q,F,Qf,Δ</i>).
+   Pada FTA bottom-up, <i>Q</i> melambangkan set dari huruf-huruf uner yang dinyatakan sebagai state, <i>F</i> melambangkan huruf berpredikat, <i>Qf</i> menyatakan set dari final state dimana <i>Qf</i> subset dari <i>Q</i>, dan <i>Δ</i> menyatakan berbagai aturan transisi state dalam bentuk <i>f(q1(x1),...,qn(xn)) → q(f(x1,...,xn))</i>.
+   Pada FTA top-down, sama dengan FTA bottom-up namun terdapat perbedaan pada <i>Qf</i> dan <i>Δ</i>. <i>Qf</i> dalam FTA top-down digantikan oleh <i>Qi</i>, yang menyatakan set dari initial state dimana <i>Qi</i> subset dari <i>Q</i>, dan <i>Δ</i> memiliki bentuk yang terbalik dengan FTA bottom-up, yaitu <i>q(f(x1,...,xn)) → f(q1(x1),...,qn(xn))</i>.</p>
 
 <pre><code>
 0             -> N(0)
