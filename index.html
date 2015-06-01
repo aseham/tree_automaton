@@ -45,14 +45,28 @@
 
 <p>Berikut adalah sebuah contoh FTA bottom-up. Diberikan sebuah FTA bottom-up (<i>Q,F,Q<sub>f</sub>,Δ</i>), dimana <i>F</i> = {0,1,A,B(.,.)}, B memiliki arity 2, <i>Q</i> = {N,C}, <i>Q<sub>f</sub></i> = {C}, dan <i>Δ</i> berisi sekumpulan aturan berikut. </p>
 
-<pre><code>
-0             -> N(0)
-1             -> N(1)
-A             -> C(A)
-B(N(x),C(y))  -> C(B(x,y)) 
+<pre><code>0             -> N(0)            (1)
+1             -> N(1)            (2)
+A             -> C(A)            (3)
+B(N(x),C(y))  -> C(B(x,y))       (4)
 </code></pre>
 
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
+<p>Contoh eksekusi yang diterima adalah: </p>
+
+<pre><code>B(0,B(1,A))
+B(0,B(N(1),C(A)))                (2) dan (3)
+B(0,C(B(1,A)))                   (4)
+B(N(0),C(B(1,A)))                (1)
+C(B(0,B(1,A)))                   (4), diterima
+</code></pre>
+
+<p>Sedangkan contoh eksekusi yang ditolak adalah: </p>
+
+<pre><code>B(A,B(0,A))
+B(A,B(N(0),C(A)))                (1) dan (3)
+B(A,C(B(0,A)))                   (4)
+B(C(A),C(B(0,A)))                (3), ditolak karena tidak ada aturan B(C(x),C(y)) dalam <i>Δ</i>.
+</code></pre>
 
 <h3>
 <a id="designer-templates" class="anchor" href="#designer-templates" aria-hidden="true"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
