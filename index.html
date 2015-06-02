@@ -4,7 +4,7 @@
   <head>
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="description" content="Tree automaton : ">
+    <meta name="description" content="Tree automaton">
     <link rel="shortcut icon" href="images/favicon2.ico">
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
 
@@ -18,7 +18,7 @@
         <header class="inner">
 
           <h1 id="project_title">Tree Automaton</h1>
-          <h2 id="project_tagline">test</h2>
+          <h2 id="project_tagline">//karena mainan string udah terlalu mainstream</h2>
 
             <!--<section id="downloads">
               <a class="zip_download_link" href="https://github.com/aseham/tree_automaton/zipball/master">Download this project as a .zip file</a>
@@ -33,7 +33,7 @@
         <h3>
 <a id="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages" aria-hidden="true"><span class="octicon octicon-link"></span></a>Apa itu tree automaton?</h3>
 
-<p>Tree automaton adalah sebuah state machine yang bekerja dengan struktur pohon. Tree automata dibagi menjadi 2 berdasarkan persepsinya, yaitu branching tree automata dan tree walking automata. 
+<p>Tree automaton atau automata pohon adalah sebuah state machine yang bekerja dengan struktur pohon. Tree automata dibagi menjadi 2 berdasarkan persepsinya, yaitu branching tree automata dan tree walking automata. 
    Branching tree automata memproses bahasa pohon regular, yaitu sebuah bahasa regular yang mendeskripsikan sekumpulan term yang disusun menjadi sebuah pohon.
    Sedangkan pada tree walking automata pohon diproses secara sekuensial mulai dari node akar, cabang kiri pohon, kemudian cabang kanan pohon.
    Dalam artikel ini akan dibahas mengenai branching tree automata, karena tree walking automata lebih sulit untuk dianalisis, bahkan untuk pohon yang relatif sederhana.</p>
@@ -73,7 +73,11 @@ B(C(A),C(B(0,A)))                (3), ditolak karena tidak ada term dalam Δ yan
 <p>Pada FTA bottom-up, sebuah term ground t diterima jika terdapat reduksi t menjadi q(t), dimana q adalah final state. Sedangkan pada FTA top-down t diterima jika terdapat reduksi q(t) menjadi t, dimana q adalah initial state.
    Sebuah bahasa pohon L(A) dikenali oleh automata pohon A apabila mengandung semua term ground yang diterima oleh A. Sebuah set term ground dapat dikenali jika terdapat automata pohon yang mengenalinya.
    Sebuah non-deterministik FTA dikatakan lengkap apabila terdapat setidaknya satu term transisi yang dapat mencapai setiap kemungkinan state. State q dapat dicapai apabila terdapat t dimana t dapat direduksi menjadi q(t).
-  </p>
+</p>
+
+<p>Teorema Myhill-Nerode didapatkan berdasarkan aturan dalam automata pohon yang berguna untuk meminimalisasikan automata.
+   
+</p>
       </section>
     </div>
 
@@ -84,8 +88,6 @@ B(C(A),C(B(0,A)))                (3), ditolak karena tidak ada term dalam Δ yan
         <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
       </footer>
     </div>
-
-    
 
   </body>
 </html>
