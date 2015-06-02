@@ -40,8 +40,8 @@
 
 <p>Branching tree automata dibagi menjadi 2 berdasarkan bagaimana cara pemrosesan sebuah finite tree automata (FTA), yaitu bottom-up dan top-down. Kedua cara pemrosesan ini berpengaruh terhadap kekuatan pemrosesan, yaitu pada FTA yang deterministik, DFTA top-down lebih lemah daripada DFTA bottom-up, karena proses top-down hanya dapat bergantung pada path.
    Sebuah branching tree automata didefinisikan dengan tuple (<i>Q,F,Q<sub>f</sub>,Δ</i>).
-   Pada FTA bottom-up, <i>Q</i> melambangkan set dari huruf-huruf uner yang dinyatakan sebagai state, <i>F</i> melambangkan huruf berpredikat, <i>Q<sub>f</sub></i> menyatakan set dari final state dimana <i>Q<sub>f</sub></i> subset dari <i>Q</i>, dan <i>Δ</i> menyatakan berbagai aturan transisi state dalam bentuk <i>f(q<sub>1</sub>(x<sub>1</sub>),...,q<sub>n</sub>(x<sub>n</sub>)) → q(f(x<sub>1</sub>,...,x<sub>n</sub>))</i>.
-   Pada FTA top-down, sama dengan FTA bottom-up namun terdapat perbedaan pada <i>Q<sub>f</sub></i> dan <i>Δ</i>. <i>Q<sub>f</sub></i> dalam FTA top-down digantikan oleh <i>Q<sub>i</sub></i>, yang menyatakan set dari initial state dimana <i>Q<sub>i</sub></i> subset dari <i>Q</i>, dan <i>Δ</i> memiliki bentuk yang terbalik dengan FTA bottom-up, yaitu <i>q(f(x<sub>1</sub>,...,x<sub>n</sub>)) → f(q<sub>1</sub>(x<sub>1</sub>),...,q<sub>n</sub>(x<sub>n</sub>))</i>.</p>
+   Pada FTA bottom-up, <i>Q</i> melambangkan set dari huruf-huruf uner yang dinyatakan sebagai state, <i>F</i> melambangkan huruf berpredikat, <i>Q<sub>f</sub></i> menyatakan set dari final state dimana <i>Q<sub>f</sub></i> subset dari <i>Q</i>, dan <i>Δ</i> menyatakan berbagai term transisi state dalam bentuk <i>f(q<sub>1</sub>(x<sub>1</sub>),...,q<sub>n</sub>(x<sub>n</sub>)) → q(f(x<sub>1</sub>,...,x<sub>n</sub>))</i>.
+   Pada FTA top-down, sama dengan FTA bottom-up namun terdapat perbedaan pada <i>Q<sub>f</sub></i> dan <i>Δ</i>. <i>Q<sub>f</sub></i> dalam FTA top-down digantikan oleh <i>Q<sub>i</sub></i>, yang menyatakan set dari initial state dimana <i>Q<sub>i</sub></i> subset dari <i>Q</i>, dan <i>Δ</i> memiliki bentuk term yang terbalik dengan FTA bottom-up, yaitu <i>q(f(x<sub>1</sub>,...,x<sub>n</sub>)) → f(q<sub>1</sub>(x<sub>1</sub>),...,q<sub>n</sub>(x<sub>n</sub>))</i>.</p>
 
 <p>Berikut adalah sebuah contoh FTA bottom-up. Diberikan sebuah FTA bottom-up (<i>Q,F,Q<sub>f</sub>,Δ</i>), dimana <i>F</i> = {0,1,A,B(.,.)}, B memiliki arity 2, <i>Q</i> = {N,C}, <i>Q<sub>f</sub></i> = {C}, dan <i>Δ</i> berisi sekumpulan aturan berikut. </p>
 
@@ -54,7 +54,8 @@ B(N(x),C(y))  -> C(B(x,y))       (4)
 <p>Contoh eksekusi yang diterima adalah: </p>
 
 <pre><code>B(0,B(1,A))
-B(0,B(N(1),C(A)))                (2) dan (3)
+B(0,B(1,C(A)))                   (3)
+B(0,B(N(1),C(A)))                (2)
 B(0,C(B(1,A)))                   (4)
 B(N(0),C(B(1,A)))                (1)
 C(B(0,B(1,A)))                   (4), diterima
@@ -63,9 +64,10 @@ C(B(0,B(1,A)))                   (4), diterima
 <p>Sedangkan contoh eksekusi yang ditolak adalah: </p>
 
 <pre><code>B(A,B(0,A))
-B(A,B(N(0),C(A)))                (1) dan (3)
+B(A,B(0,C(A)))                   (3)
+B(A,B(N(0),C(A)))                (1)
 B(A,C(B(0,A)))                   (4)
-B(C(A),C(B(0,A)))                (3), ditolak karena tidak ada aturan B(C(x),C(y)) dalam Δ.
+B(C(A),C(B(0,A)))                (3), ditolak karena tidak ada term dalam Δ yang memenuhi.
 </code></pre>
 
 <h3>
